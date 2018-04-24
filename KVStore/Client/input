@@ -1,0 +1,7 @@
+put e 1
+put e 5
+get 3 x
+get xx 1
+append 1 x
+append 4x 3
+quit

@@ -1,0 +1,73 @@
+###############################################################
+#
+#	run a docker cluster with 5 node's of xraft-kv
+#
+#					--- Joly, Jan 25 2018
+###############################################################
+
+version: '3'
+
+networks:
+  xraft:
+
+services:
+
+  kv0.xraft.com:
+    container_name: kv0.xraft.com
+    image: xraft-kv
+    command: ./Server -id 0
+    volumes:
+      - /home/joly/workspace/GO/src/XRaft/logs-container/logs.kv0.xraft.com:/home/joly/workspace/logs
+    ports:
+      - 9000:5000
+      - 8000:6060
+    networks:
+      - xraft
+  
+  kv1.xraft.com:
+    container_name: kv1.xraft.com
+    image: xraft-kv
+    command: ./Server -id 1
+    volumes:
+      - /home/joly/workspace/GO/src/XRaft/logs-container/logs.kv1.xraft.com:/home/joly/workspace/logs
+    ports:
+      - 9001:5000
+      - 8001:6060
+    networks:
+      - xraft
+
+  kv2.xraft.com:
+    container_name: kv2.xraft.com
+    image: xraft-kv
+    command: ./Server -id 2
+    volumes:
+      - /home/joly/workspace/GO/src/XRaft/logs-container/logs.kv2.xraft.com:/home/joly/workspace/logs
+    ports:
+      - 9002:5000
+      - 8002:6060
+    networks:
+      - xraft
+
+  kv3.xraft.com:
+    container_name: kv3.xraft.com
+    image: xraft-kv
+    command: ./Server -id 3
+    volumes:
+      - /home/joly/workspace/GO/src/XRaft/logs-container/logs.kv3.xraft.com:/home/joly/workspace/logs
+    ports:
+      - 9003:5000
+      - 8003:6060
+    networks:
+      - xraft
+
+  kv4.xraft.com:
+    container_name: kv4.xraft.com
+    image: xraft-kv
+    command: ./Server -id 4
+    volumes:
+      - /home/joly/workspace/GO/src/XRaft/logs-container/logs.kv4.xraft.com:/home/joly/workspace/logs
+    ports:
+      - 9004:5000
+      - 8004:6060
+    networks:
+      - xraft
